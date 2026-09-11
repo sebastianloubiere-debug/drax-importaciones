@@ -18,7 +18,61 @@
     #loading{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#050505;color:white;z-index:3;gap:18px}
     #loading img{width:112px;height:112px;border-radius:26px;box-shadow:0 0 28px rgba(255,111,0,.35)}
     #loading b{font-size:20px;letter-spacing:.5px}.small{font-size:12px;color:#aaa}
-  </style>
+  
+/* DRAX THEME OVERRIDE - negro / naranja / blanco */
+:root{
+  --bg:#000000 !important;
+  --card:#0b0b0b !important;
+  --text:#ffffff !important;
+  --muted:#b8b8b8 !important;
+  --line:#2a2a2a !important;
+  --dark:#ff6a00 !important;
+  --green:#ff6a00 !important;
+  --blue:#ff6a00 !important;
+  --orange:#ff6a00 !important;
+  --red:#ff6a00 !important;
+  --brand:#ff6a00 !important;
+}
+html,body,main{background:#000 !important;color:#fff !important}
+.top,.bottom-nav,.nav-btn,.timeline,.kpi,.month-card,.order-card,.form-card,.modal-card,.modal-head,.modal-body,.actions,.install-box,.table-wrap{
+  background:#0b0b0b !important;color:#fff !important;border-color:#2a2a2a !important;
+}
+.brand,.timeline-title,.month h3,.order-title,.form-card h2,.modal-head h2,.docs h3,.doc-row b{color:#fff !important}
+.brand small,.sync,.kpi span,.timeline-sub,.month h3 small,.item-meta,.order-num,.mini label,.field label,.order-detail,.install-box p{color:#b8b8b8 !important}
+.kpi b,.order-link,.nav-btn.active,.nav-btn.active .ico{color:#ff6a00 !important}
+.icon-btn,.timeline-controls button,.btn.secondary,.close{
+  background:#171717 !important;color:#fff !important;border:1px solid #333 !important;
+}
+.btn,.fab,#nativeInstall{
+  background:#ff6a00 !important;color:#000 !important;border:none !important;
+}
+.btn.green,.btn.danger{background:#ff6a00 !important;color:#000 !important}
+.toolbar{background:#000 !important}
+.toolbar input,.toolbar select,.field input,.field textarea,.field select,.doc-row input{
+  background:#111 !important;color:#fff !important;border:1px solid #3a3a3a !important;
+}
+input::placeholder,textarea::placeholder{color:#777 !important}
+option{background:#111 !important;color:#fff !important}
+.item,.order-detail,.docs,.modal .actions,.bottom-nav,.top,.modal-head,.doc-row{border-color:#2a2a2a !important}
+.status{
+  background:#ff6a00 !important;color:#000 !important;border:1px solid #ff8a33 !important;
+}
+.status.recibido,.status.transito,.status.produccion{background:#ff6a00 !important;color:#000 !important}
+a{color:#ff8a33 !important}
+.toast{background:#ff6a00 !important;color:#000 !important}
+.install-sheet,.modal{background:rgba(0,0,0,.82) !important}
+th{background:#141414 !important;color:#ff8a33 !important;border-color:#2a2a2a !important}
+td{background:#0b0b0b !important;color:#fff !important;border-color:#242424 !important}
+.clickrow:hover{background:#151515 !important}.clickrow:hover td{background:#151515 !important}
+.timeline-controls button{font-weight:900}.pair-active{background:#ff6a00 !important;color:#000 !important}
+@media(max-width:759px){
+  .top{background:#000 !important}
+  .bottom-nav{background:#080808 !important}
+  .nav-btn{background:#080808 !important;color:#aaa !important}
+  .nav-btn.active{color:#ff6a00 !important}
+}
+
+</style>
 </head>
 <body>
   <div id="loading"><img src="icon-192.png" alt="Drax"><b>Drax Importaciones</b><span class="small">Cargando…</span></div>
