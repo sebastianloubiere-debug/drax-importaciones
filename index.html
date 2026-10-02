@@ -21,8 +21,8 @@ html,body{margin:0;width:100%;height:100%;background:#050505;overflow:hidden}
 #app{position:fixed;inset:0;width:100%;height:100%;border:0;background:#050505}
 </style>
 </head>
-<body>
-<iframe id="app" title="Drax Importaciones" allow="clipboard-read; clipboard-write" src="https://script.google.com/macros/s/AKfycbyzziecbI9qXpyhhoCD21Bx3DdUQoLZOho0ayvh1cium_Qp0nzvBIVqVkECsVZK_ZVD/exec"></iframe>
+<body><div id="boot" style="position:fixed;inset:0;z-index:9999;background:#050505;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:Arial,sans-serif"><div style="font-weight:900;font-style:italic;font-size:34px;color:#ff6900">DRAX <span style="color:#fff;font-size:12px;letter-spacing:4px">IMPORT</span></div><div style="width:min(280px,70vw);height:5px;background:#222;border-radius:99px;overflow:hidden;margin-top:22px"><div id="bootbar" style="height:100%;width:12%;background:#ff6900;border-radius:99px;transition:width .25s"></div></div><div style="margin-top:10px;font-size:11px;color:#777">Cargando datos…</div></div>
+<iframe id="app" onload="document.getElementById('bootbar').style.width='100%';setTimeout(function(){document.getElementById('boot').style.display='none'},180)" title="Drax Importaciones" allow="clipboard-read; clipboard-write" src="https://script.google.com/macros/s/AKfycbyzziecbI9qXpyhhoCD21Bx3DdUQoLZOho0ayvh1cium_Qp0nzvBIVqVkECsVZK_ZVD/exec"></iframe>
 <script>
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('./service-worker.js',{updateViaCache:'none'}).catch(()=>{});
