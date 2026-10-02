@@ -9,44 +9,23 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Drax Importaciones">
 <title>Drax Importaciones</title>
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon-192.png" sizes="192x192">
-<link rel="apple-touch-icon" href="icon-192.png">
-<link rel="preconnect" href="https://script.google.com">
-<link rel="preconnect" href="https://script.googleusercontent.com">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<link rel="preconnect" href="https://script.google.com" crossorigin>
+<link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
+<link rel="dns-prefetch" href="//script.google.com">
+<link rel="dns-prefetch" href="//script.googleusercontent.com">
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;background:#050505;overflow:hidden;font-family:Arial,Helvetica,sans-serif}
-#app{position:fixed;inset:0;width:100%;height:100%;border:0;background:#050505;padding-top:env(safe-area-inset-top);opacity:0;transition:opacity .16s ease}
-#boot{position:fixed;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;background:#050505;transition:opacity .18s ease}
-.boot-inner{width:min(310px,75vw);text-align:center}
-.drax{font-size:58px;line-height:.82;font-weight:1000;font-style:italic;letter-spacing:-4px;color:#ff6900}
-.import{margin-top:12px;color:#fff;font-size:16px;font-weight:900;letter-spacing:9px}
-.track{height:5px;background:#181818;border-radius:99px;overflow:hidden;margin-top:34px}
-.bar{height:100%;width:8%;background:#2ecc71;border-radius:99px;transition:width .22s ease}
-.txt{font-size:10px;color:#666;margin-top:13px;letter-spacing:.6px}
+html,body{margin:0;width:100%;height:100%;background:#050505;overflow:hidden}
+#app{position:fixed;inset:0;width:100%;height:100%;border:0;background:#050505}
 </style>
 </head>
 <body>
-<div id="boot"><div class="boot-inner"><div class="drax">DRAX</div><div class="import">IMPORT</div><div class="track"><div class="bar" id="bar"></div></div><div class="txt" id="txt">Cargando datos...</div></div></div>
 <iframe id="app" title="Drax Importaciones" allow="clipboard-read; clipboard-write" src="https://script.google.com/macros/s/AKfycbyzziecbI9qXpyhhoCD21Bx3DdUQoLZOho0ayvh1cium_Qp0nzvBIVqVkECsVZK_ZVD/exec"></iframe>
 <script>
-const frame=document.getElementById('app'),boot=document.getElementById('boot'),bar=document.getElementById('bar'),txt=document.getElementById('txt');
-let done=false;
-const start=performance.now();
-function p(n,t){bar.style.width=n+'%';if(t)txt.textContent=t}
-setTimeout(()=>p(38,'Conectando...'),120);
-setTimeout(()=>p(68,'Cargando datos...'),500);
-setTimeout(()=>p(86,'Preparando aplicación...'),1100);
-function reveal(){
- if(done)return;done=true;p(100,'Listo');
- const wait=Math.max(0,220-(performance.now()-start));
- setTimeout(()=>{frame.style.opacity='1';boot.style.opacity='0';setTimeout(()=>boot.style.display='none',180)},wait);
-}
-frame.addEventListener('load',reveal,{once:true});
-setTimeout(()=>{if(!done)p(94,'Casi listo...')},2200);
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
+  navigator.serviceWorker.register('./service-worker.js',{updateViaCache:'none'}).catch(()=>{});
 }
 </script>
 </body>
