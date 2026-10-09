@@ -1,4 +1,4 @@
-const CACHE='drax-importaciones-v41';
+const CACHE='drax-importaciones-v42';
 const CORE=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)));
