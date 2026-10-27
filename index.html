@@ -28,26 +28,15 @@ const APP_URL='https://script.google.com/macros/s/AKfycbyzziecbI9qXpyhhoCD21Bx3D
 const app=document.getElementById('app');
 const params=new URLSearchParams(location.search);
 const publicMode=params.get('catalogo')==='1'||params.has('grupo')||params.has('articulo');
-const config={
-  mode:publicMode,
-  group:params.get('grupo')||'',
-  item:params.get('articulo')||'',
-  baseUrl:location.origin+location.pathname
-};
 app.addEventListener('load',function(){
   document.getElementById('bootbar').style.width='100%';
   setTimeout(function(){document.getElementById('boot').style.display='none'},180);
-  if(publicMode){
-    var tries=0;
-    var send=function(){
-      tries++;
-      try{app.contentWindow.postMessage({type:'drax-public-catalog',config:config},'*')}catch(e){}
-      if(tries<12)setTimeout(send,350);
-    };
-    send();
-  }
 });
-app.src=APP_URL;
+if(publicMode){
+  app.src=APP_URL+'#drax='+encodeURIComponent(params.toString());
+}else{
+  app.src=APP_URL;
+}
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('./service-worker.js',{updateViaCache:'none'}).catch(()=>{});
 }
