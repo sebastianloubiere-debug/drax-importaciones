@@ -33,7 +33,11 @@ app.addEventListener('load',function(){
   setTimeout(function(){document.getElementById('boot').style.display='none'},180);
 });
 if(publicMode){
-  app.src=APP_URL+'#drax='+encodeURIComponent(params.toString());
+  var target=new URL(APP_URL);
+  target.searchParams.set('publico','1');
+  if(params.get('grupo'))target.searchParams.set('grupo',params.get('grupo'));
+  if(params.get('articulo'))target.searchParams.set('articulo',params.get('articulo'));
+  app.src=target.toString();
 }else{
   app.src=APP_URL;
 }
