@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#050505">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Drax Importaciones">
 <title>Drax Importaciones</title>
 <link rel="manifest" href="./manifest.json">
@@ -27,7 +27,7 @@ html,body{margin:0;width:100%;height:100%;background:#050505;overflow:hidden;ove
 const APP_URL='https://script.google.com/macros/s/AKfycbyzziecbI9qXpyhhoCD21Bx3DdUQoLZOho0ayvh1cium_Qp0nzvBIVqVkECsVZK_ZVD/exec';
 const app=document.getElementById('app');
 const params=new URLSearchParams(location.search);
-const publicMode=params.get('catalogo')==='1'||params.has('grupo')||params.has('articulo');
+const publicMode=params.get('catalogo')==='1'||params.has('grupo')||params.has('articulo')||params.has('rotulo');
 app.addEventListener('load',function(){
   document.getElementById('bootbar').style.width='100%';
   setTimeout(function(){document.getElementById('boot').style.display='none'},180);
@@ -37,6 +37,7 @@ if(publicMode){
   target.searchParams.set('publico','1');
   if(params.get('grupo'))target.searchParams.set('grupo',params.get('grupo'));
   if(params.get('articulo'))target.searchParams.set('articulo',params.get('articulo'));
+  if(params.get('rotulo'))target.searchParams.set('rotulo',params.get('rotulo'));
   app.src=target.toString();
 }else{
   app.src=APP_URL;
